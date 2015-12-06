@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50541
 File Encoding         : 65001
 
-Date: 2015-12-02 11:49:04
+Date: 2015-12-06 11:36:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -114,7 +114,7 @@ CREATE TABLE `mst_mahasiswa` (
   `hp` varchar(15) DEFAULT NULL,
   `alamat` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of mst_mahasiswa
@@ -130,12 +130,31 @@ INSERT INTO `mst_mahasiswa` VALUES ('10', '3245325', 'asdfasdfasdf', '23452345',
 INSERT INTO `mst_mahasiswa` VALUES ('11', '12324124', 'asdfsdfasdf', 'asdfasdf', '1', '2012-03-04', null, '1', '1', '0123-4123-4123', 'asdfasdfasdf');
 INSERT INTO `mst_mahasiswa` VALUES ('12', '523452345235', 'asdfasdfasdf', 'asfasdf', '1', '2012-03-04', null, '1', '1', '0123 4123 4134', '');
 INSERT INTO `mst_mahasiswa` VALUES ('13', '12324124', 'asdfsdfasdf', 'asdfasdf', '1', '2012-03-04', null, '1', '1', '0123 4123 4123', 'asdfasdfasdf');
-INSERT INTO `mst_mahasiswa` VALUES ('14', '11.1.03.03.0118', 'Heru Setyiawan', 'kediri', '4', '2012-12-21', null, '7', '1', '0345 3245 3453', 'anonym');
+INSERT INTO `mst_mahasiswa` VALUES ('14', '11.1.03.03.0118', 'HERU SETYIAWAN', 'Kediri', '4', '2012-12-21', '1', '7', '1', '0345 3245 3453', 'anonym');
 INSERT INTO `mst_mahasiswa` VALUES ('15', '11.1.03.03.0111', 'AHSAN HENDRA', 'Kediri', '1', '0000-00-00', null, '1', '1', '1', '8234234');
 INSERT INTO `mst_mahasiswa` VALUES ('16', '11.1.03.03.0111', 'AHSAN HENDRA', 'Kediri', '1', '0000-00-00', null, '1', '1', '1', '08234234');
 INSERT INTO `mst_mahasiswa` VALUES ('17', '11.1.03.03.0111', 'AHSAN HENDRA', 'Kediri', '1', '0000-00-00', null, '1', '1', '1', '0823 0928 0283');
 INSERT INTO `mst_mahasiswa` VALUES ('18', '11.1.03.03.0111', 'AHSAN HENDRA', 'Kediri', '1', '0000-00-00', null, '1', '1', '1', null);
 INSERT INTO `mst_mahasiswa` VALUES ('19', '11.1.03.03.0111', 'AHSAN HENDRA', 'Kediri', '1', '0000-00-00', null, '1', '1', '0823 0928 0283', '1');
+INSERT INTO `mst_mahasiswa` VALUES ('20', '10', 'ASDFASDF', 'Asdfasdf', '3', '2013-12-31', '7', '1', '345', '5asdfasdfasdfas', null);
+INSERT INTO `mst_mahasiswa` VALUES ('21', '10', 'ASDFASDF', 'Asdfasdf', '3', '2013-12-31', '7', '1', '345', '5asdfasdfasdfas', null);
+INSERT INTO `mst_mahasiswa` VALUES ('22', '10', 'ASDFASDF', 'Asdfasdf', '3', '2013-12-31', '7', '1', '345', '5asdfasdfasdfas', null);
+INSERT INTO `mst_mahasiswa` VALUES ('23', '234523452', 'ASDFASDF', 'Asdfasdf', '3', '2013-12-31', '7', '1', '345', '5asdfasdfasdfas', null);
+INSERT INTO `mst_mahasiswa` VALUES ('24', '234523452', 'ASDFASDF', 'Asdfasdf', '3', '2013-12-31', '7', '1', '345', '5asdfasdfasdfas', null);
+INSERT INTO `mst_mahasiswa` VALUES ('25', '234523452', 'ASDFASDF', 'Asdfasdf', '3', '2013-12-31', '7', '1', '345', '5asdfasdfasdfas', null);
+INSERT INTO `mst_mahasiswa` VALUES ('26', '23', 'ASDFASDF', 'Asdfaf', '1', '2012-03-04', '7', '1', '0', '', null);
+INSERT INTO `mst_mahasiswa` VALUES ('27', '23', 'ASDFASDF', 'Asdfaf', '1', '2012-03-04', '7', '1', '0', '', null);
+INSERT INTO `mst_mahasiswa` VALUES ('28', '23', 'ASDFASDF', 'Asdfaf', '1', '2012-03-04', '7', '1', '0', '', null);
+INSERT INTO `mst_mahasiswa` VALUES ('29', '23', 'ASDFASDF', 'Asdfaf', '1', '2012-03-04', '7', '1', '0', '', null);
+INSERT INTO `mst_mahasiswa` VALUES ('30', '23', 'ASDFASDF', 'Asdfaf', '1', '2012-03-04', '7', '1', '0', '', null);
+INSERT INTO `mst_mahasiswa` VALUES ('31', '234523452345234', 'ASDFASDFASDF', 'Asdfasdf', '1', '2012-03-04', '7', '1', '0', '', null);
+INSERT INTO `mst_mahasiswa` VALUES ('32', '1232', 'ASDFASDF', 'Asdfasdf', '2', '2012-03-04', '7', '1', '0', '', null);
+INSERT INTO `mst_mahasiswa` VALUES ('33', '1232', 'ASDFASDF', 'Asdfasdf', '2', '2012-03-04', '7', '1', '0', '', null);
+INSERT INTO `mst_mahasiswa` VALUES ('34', '1232', 'ASDFASDF', 'Asdfasdf', '2', '2012-03-04', '7', '1', '0', '', null);
+INSERT INTO `mst_mahasiswa` VALUES ('35', '1232', 'ASDFASDF', 'Asdfasdf', '2', '2012-03-04', '0', '7', '1', '', '');
+INSERT INTO `mst_mahasiswa` VALUES ('36', '1234123', 'ASDFASDF', 'Asdfasdf', '1', '2012-03-04', '1', '7', '1', '', '');
+INSERT INTO `mst_mahasiswa` VALUES ('37', '212', 'ASDFASDFASDF', '', '1', '0000-00-00', '0', '7', '1', '0456 7456 7456', '');
+INSERT INTO `mst_mahasiswa` VALUES ('40', '11.1.04.04.0199', 'M. ALI SODIKIN', 'Kediri', '5', '2012-12-12', '1', '7', '1', '0878 7676 7676', 'asdfasdfasdfasdfasdf');
 
 -- ----------------------------
 -- Table structure for `mst_matkul`
@@ -169,20 +188,15 @@ CREATE TABLE `mst_nilai` (
   `ref_prodi_id` int(5) DEFAULT NULL,
   `ref_semester_id` int(5) NOT NULL,
   `ref_kelas_id` int(5) DEFAULT NULL,
-  `nilai` int(5) NOT NULL,
+  `nilai` float(5,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of mst_nilai
 -- ----------------------------
-INSERT INTO `mst_nilai` VALUES ('29', '14', '11', '7', '8', '1', '100');
-INSERT INTO `mst_nilai` VALUES ('30', '14', '12', '7', '8', '1', '70');
-INSERT INTO `mst_nilai` VALUES ('31', '8', '11', '7', '8', '1', '100');
-INSERT INTO `mst_nilai` VALUES ('32', '12', '11', '7', '8', '1', '90');
-INSERT INTO `mst_nilai` VALUES ('33', '8', '12', '7', '8', '1', '56');
-INSERT INTO `mst_nilai` VALUES ('35', '14', '13', '7', '6', '1', '80');
-INSERT INTO `mst_nilai` VALUES ('36', '14', '10', '7', '5', '1', '80');
+INSERT INTO `mst_nilai` VALUES ('1', '14', '11', '7', '8', null, '3.25');
+INSERT INTO `mst_nilai` VALUES ('2', '14', '12', '7', '8', null, '3.75');
 
 -- ----------------------------
 -- Table structure for `mst_user`
@@ -197,21 +211,15 @@ CREATE TABLE `mst_user` (
   `last_login` datetime DEFAULT NULL,
   `status` int(2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of mst_user
 -- ----------------------------
-INSERT INTO `mst_user` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '', '1', '2015-12-01 21:12:04', null);
-INSERT INTO `mst_user` VALUES ('2', 'siswa', '5787be38ee03a9ae5360f54d9026465f', '', '2', '2015-11-26 23:11:37', null);
-INSERT INTO `mst_user` VALUES ('3', '11.1.03.03.0118', 'ca77589729804b0def34f854e3fea88c', '', '3', null, '1');
-INSERT INTO `mst_user` VALUES ('6', 'asfd', 'd1bb70baa31f1df69628c00632b65eab', '', '3', '2015-11-26 23:11:37', '1');
-INSERT INTO `mst_user` VALUES ('7', '1243', '912ec803b2ce49e4a541068d495ab570', 'asdf', '2', null, '1');
-INSERT INTO `mst_user` VALUES ('8', '11.1.03.03.0111', '6b8a7d605f526864865055c87118358f', '', '3', null, '1');
-INSERT INTO `mst_user` VALUES ('9', '11.1.03.03.0111', '6b8a7d605f526864865055c87118358f', '', '3', null, '1');
-INSERT INTO `mst_user` VALUES ('10', '11.1.03.03.0111', '6b8a7d605f526864865055c87118358f', '', '3', null, '1');
-INSERT INTO `mst_user` VALUES ('11', '11.1.03.03.0111', '6b8a7d605f526864865055c87118358f', '', '3', null, '1');
-INSERT INTO `mst_user` VALUES ('12', '11.1.03.03.0111', '6b8a7d605f526864865055c87118358f', '', '3', null, '1');
+INSERT INTO `mst_user` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '', '1', '2015-12-06 12:12:09', null);
+INSERT INTO `mst_user` VALUES ('14', '1234', '81dc9bdb52d04dc20036dbd8313ed055', '1234', '3', '2015-12-06 10:12:09', '1');
+INSERT INTO `mst_user` VALUES ('27', '11.1.04.04.0199', '56117b5e797e699cb8af1f87e47e1377', '', '3', '2015-12-06 07:12:43', null);
+INSERT INTO `mst_user` VALUES ('29', '11.1.03.03.0118', '81dc9bdb52d04dc20036dbd8313ed055', '1234', '3', '2015-12-06 12:12:54', '1');
 
 -- ----------------------------
 -- Table structure for `ref_agama`
@@ -238,23 +246,67 @@ INSERT INTO `ref_agama` VALUES ('5', 'budha');
 DROP TABLE IF EXISTS `ref_grade`;
 CREATE TABLE `ref_grade` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `value` float(5,2) NOT NULL,
+  `grade` varchar(2) NOT NULL,
   `min` int(5) NOT NULL,
   `max` int(5) NOT NULL,
-  `grade` varchar(2) NOT NULL,
-  `value` double(5,1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of ref_grade
 -- ----------------------------
-INSERT INTO `ref_grade` VALUES ('1', '91', '100', 'A', '4.0');
-INSERT INTO `ref_grade` VALUES ('2', '81', '90', 'B+', '3.5');
-INSERT INTO `ref_grade` VALUES ('3', '71', '80', 'B', '3.0');
-INSERT INTO `ref_grade` VALUES ('4', '61', '70', 'C+', '2.5');
-INSERT INTO `ref_grade` VALUES ('5', '51', '60', 'C', '2.0');
-INSERT INTO `ref_grade` VALUES ('6', '41', '50', 'D', '1.0');
-INSERT INTO `ref_grade` VALUES ('7', '0', '40', 'E', '0.0');
+INSERT INTO `ref_grade` VALUES ('1', '4.00', 'A', '0', '0');
+INSERT INTO `ref_grade` VALUES ('2', '3.99', 'A', '0', '0');
+INSERT INTO `ref_grade` VALUES ('3', '3.87', 'A', '0', '0');
+INSERT INTO `ref_grade` VALUES ('4', '3.75', 'A', '0', '0');
+INSERT INTO `ref_grade` VALUES ('5', '3.66', 'A', '0', '0');
+INSERT INTO `ref_grade` VALUES ('6', '3.59', 'A', '0', '0');
+INSERT INTO `ref_grade` VALUES ('7', '3.51', 'A', '0', '0');
+INSERT INTO `ref_grade` VALUES ('8', '3.50', 'B', '0', '0');
+INSERT INTO `ref_grade` VALUES ('9', '3.33', 'B', '0', '0');
+INSERT INTO `ref_grade` VALUES ('10', '3.25', 'B', '0', '0');
+INSERT INTO `ref_grade` VALUES ('11', '3.24', 'B', '0', '0');
+INSERT INTO `ref_grade` VALUES ('12', '3.16', 'B', '0', '0');
+INSERT INTO `ref_grade` VALUES ('13', '3.00', 'B', '0', '0');
+INSERT INTO `ref_grade` VALUES ('14', '2.99', 'B', '0', '0');
+INSERT INTO `ref_grade` VALUES ('15', '2.88', 'B', '0', '0');
+INSERT INTO `ref_grade` VALUES ('16', '2.76', 'B', '0', '0');
+INSERT INTO `ref_grade` VALUES ('17', '2.75', 'C', '0', '0');
+INSERT INTO `ref_grade` VALUES ('18', '2.67', 'C', '0', '0');
+INSERT INTO `ref_grade` VALUES ('19', '2.58', 'C', '0', '0');
+INSERT INTO `ref_grade` VALUES ('20', '2.50', 'C', '0', '0');
+INSERT INTO `ref_grade` VALUES ('21', '2.49', 'C', '0', '0');
+INSERT INTO `ref_grade` VALUES ('22', '2.33', 'C', '0', '0');
+INSERT INTO `ref_grade` VALUES ('23', '2.25', 'C', '0', '0');
+INSERT INTO `ref_grade` VALUES ('24', '2.24', 'C', '0', '0');
+INSERT INTO `ref_grade` VALUES ('25', '2.16', 'C', '0', '0');
+INSERT INTO `ref_grade` VALUES ('26', '2.16', 'C', '0', '0');
+INSERT INTO `ref_grade` VALUES ('27', '2.00', 'C', '0', '0');
+INSERT INTO `ref_grade` VALUES ('28', '1.99', 'D', '0', '0');
+INSERT INTO `ref_grade` VALUES ('29', '1.91', 'D', '0', '0');
+INSERT INTO `ref_grade` VALUES ('30', '1.83', 'D', '0', '0');
+INSERT INTO `ref_grade` VALUES ('31', '1.74', 'D', '0', '0');
+INSERT INTO `ref_grade` VALUES ('32', '1.66', 'D', '0', '0');
+INSERT INTO `ref_grade` VALUES ('33', '1.58', 'D', '0', '0');
+INSERT INTO `ref_grade` VALUES ('34', '1.50', 'D', '0', '0');
+INSERT INTO `ref_grade` VALUES ('35', '1.41', 'D', '0', '0');
+INSERT INTO `ref_grade` VALUES ('36', '1.33', 'D', '0', '0');
+INSERT INTO `ref_grade` VALUES ('37', '1.25', 'D', '0', '0');
+INSERT INTO `ref_grade` VALUES ('38', '1.24', 'D', '0', '0');
+INSERT INTO `ref_grade` VALUES ('39', '1.00', 'D', '0', '0');
+INSERT INTO `ref_grade` VALUES ('40', '0.93', 'E', '0', '0');
+INSERT INTO `ref_grade` VALUES ('41', '0.86', 'E', '0', '0');
+INSERT INTO `ref_grade` VALUES ('42', '0.80', 'E', '0', '0');
+INSERT INTO `ref_grade` VALUES ('43', '0.66', 'E', '0', '0');
+INSERT INTO `ref_grade` VALUES ('44', '0.59', 'E', '0', '0');
+INSERT INTO `ref_grade` VALUES ('45', '0.52', 'E', '0', '0');
+INSERT INTO `ref_grade` VALUES ('46', '0.46', 'E', '0', '0');
+INSERT INTO `ref_grade` VALUES ('47', '0.32', 'E', '0', '0');
+INSERT INTO `ref_grade` VALUES ('48', '0.25', 'E', '0', '0');
+INSERT INTO `ref_grade` VALUES ('49', '0.19', 'E', '0', '0');
+INSERT INTO `ref_grade` VALUES ('50', '0.12', 'E', '0', '0');
+INSERT INTO `ref_grade` VALUES ('51', '0.10', 'E', '0', '0');
 
 -- ----------------------------
 -- Table structure for `ref_kelas`
