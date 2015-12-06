@@ -48,6 +48,7 @@
 						<th class="text-center">No</th>
 						<th>Nama Mata Kuliah</th>
 						<th class="text-center" width="70">Sks</th>
+						<th class="text-center" width="70">Nilai</th>
 						<th class="text-center">Index Nilai</th>
 					</tr>	
 				</thead>
@@ -68,7 +69,15 @@
 									?>
 								</td>
 								<td class="text-center">
-									<?php $nilai = $this->mod_khs->get_nilai($this->session->userdata('prodi'),$this->session->userdata('mahasiswa'), $rs['id_matkul']); 
+									<?php
+									$nilai = $this->mod_khs->get_nilai($this->session->userdata('prodi'),$this->session->userdata('mahasiswa'), $rs['id_matkul']);
+									foreach($nilai as $r){
+							  				echo $r['nilai'];
+							  			}
+									?>
+								</td>
+								<td class="text-center">
+									<?php 
 										
 							  			foreach($nilai as $r){
 							  				$this->db->where('value', $r['nilai']);
@@ -104,6 +113,6 @@
 		</div>
   </div><!-- /.box-body -->
   <div class="box-footer">
-  	<p> <strong>Indek Prestasi Komulatif</strong> : <strong><?php if($total!=NULL) echo ($total/$sks); ?></strong></p>
+  	<p> <strong>Indek Prestasi Komulatif</strong> : <strong><?php if($total!=NULL) echo number_format($total/$sks, 2, ',', ''); ?></strong></p>
   </div>
 </div><!-- /.box -->
