@@ -1,40 +1,21 @@
-<div class="row-fluid">
-	<!-- NOTIFICATION -->
-	<?php echo $this->session->flashdata('notif'); ?>
-	<!-- END NOTIFICATION -->
-	<div class="box box-danger">
-		<div class="box-body">
-			<form class="form-horizontal">
-				<div class="alert alert-info">
-					<h4><span class="fa fa-exclamation-triangle"></span> Perhatian:</h4>
-					<p><span class="fa fa-angle-double-right"></span> Kartu Hasil Studi ini dibuat berdasarkan data nilai dan Mata Kuliah yang telah masuk ke sistem.</p>
-				</div>
-				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-2 control-label">Nama Mahasiswa :</label>
-					<div class="col-sm-5">
-						<?php foreach($mahasiswa as $mh): ?>
-							<input type="text" class="form-control" value="<?php echo $mh['nama_lengkap']; ?>" disabled>
-						<?php endforeach; ?>
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-2 control-label">Prodi/Jurusan :</label>
-					<div class="col-sm-5">
-					<?php foreach($prodi as $pr): ?>
-						<input type="text" class="form-control" value="<?php echo $pr['nama_prodi']; ?>" disabled>
-					<?php endforeach; ?>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-	<div class="box box-danger">
-		<div class="box-header with-border">
-			<div class="col-md-12">
-				<a href="<?php echo base_url('admin/khs/kartu_hasil_studi'); ?>" target="_blank" class="btn btn-sm btn-default btn-flat pull-right"><span class="fa fa-print"></span> Cetak KHS</a>
-			</div>
-		</div>		
-		<div class="box-body">
+<style type="text/css">
+	.table > thead > tr > th {
+		    vertical-align: bottom !important;
+		    border-bottom: none !important;
+		}
+	.table > thead > tr > td {
+		    vertical-align: bottom !important;
+		    border-bottom: none !important;
+		}
+</style>
+
+<div class="box box-info">
+  <div class="box-header with-border">
+	<h3 class="box-title">
+		
+	</h3>
+  </div>
+  <div class="box-body">
 			
 			<div class="row">
 				<div class="col-md-12">
@@ -109,13 +90,11 @@
 							<tr>
 								<th><i>Index Prestasi</i></th>
 								<th>:</th>
-								<th><i><?php echo number_format($total/$sks, 2, ',', ''); ?></i></th>
+								<th><i><?php if($total !=NULL) echo number_format($total/$sks, 2, ',', ''); ?></i></th>
 							</tr>
 						</table>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-	</div>
-</div>
+</div><!-- /.box -->

@@ -17,12 +17,23 @@
 			return $sql->result_array();
 		}
 
+		function mahasiswa_by_nim($nim){
+			$this->db->select('*');
+			$this->db->select('mst_mahasiswa.id as id');
+	        $this->db->from('mst_mahasiswa');
+	        $this->db->join('ref_prodi', 'ref_prodi.id = mst_mahasiswa.ref_prodi_id');
+	        $this->db->join('ref_agama', 'ref_agama.id = mst_mahasiswa.ref_agama_id');	        
+	        $this->db->where('mst_mahasiswa.nim', $nim);
+			$sql = $this->db->get();
+			return $sql->result_array();
+		}
+
 		function get_agama(){
 			$sql = $this->db->get('ref_agama');
 			return $sql->result_array();
 		}
 
-		function add_mahasiswa($a, $b, $c, $d, $e, $f, $g, $h, $i, $ij){
+		function add_mahasiswa($a, $b, $c, $d, $e, $f, $g, $h, $i, $j){
 			$config = array(
 				'nim'=>$a,
 				'nama_lengkap'=>strtoupper($b),
@@ -38,8 +49,8 @@
 			$data = [
 				'username'=>$a,
 				'password'=>md5($a),
+				'text'=>$a,
 				'ref_level_id'=>3,
-				'status'=>1
 			];
 			$this->db->insert('mst_user', $data);
 			$this->db->insert('mst_mahasiswa', $config);

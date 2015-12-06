@@ -4,13 +4,18 @@
 		public function __construct(){
 			parent::__construct();
 
-			if($this->session->userdata('username')==""){
-				redirect('auth');
+			if ($this->session->userdata('username')=='') {
+				redirect ('/');
+			}elseif ($this->session->userdata('level')==3) {
+				redirect ('mahasiswa', 'refresh');
 			}
 			$this->load->model(['mod_prodi','mod_periode','mod_krs', 'mod_matkul', 'mod_prodi']);
 		}
 
 		public function index(){
+			$session = ['prodi'=>'',];
+			$this->session->unset_userdata($session);
+
 			$data['header'] = "Data krs mahasiswa";
 			$data['content'] = 'admin/krs/index';
 			$data['get_krs'] = $this->mod_krs->get_krs();
@@ -28,16 +33,20 @@
 
 		public function filter_prodi()
 		{
-			$id_prodi = $this->input->post('prodi');
-			if($id_prodi == NULL){
+			$prodi = $this->input->post('prodi');
+				$session = [
+				'prodi'=>$prodi,
+			];
+			$this->session->set_userdata($session);
+			if($prodi == NULL){
 				redirect('admin/krs', 'refresh');
 			}
-			redirect('admin/krs/prodi/'.$id_prodi, 'refresh');
+			redirect('admin/krs/prodi/', 'refresh');
 		}
 
 		public function prodi()
 		{
-			$prodi = $this->uri->segment(4);
+			$prodi = $this->session->userdata('prodi');
 			if($prodi==NULL){
 				redirect('admin/krs', 'refresh');
 			}

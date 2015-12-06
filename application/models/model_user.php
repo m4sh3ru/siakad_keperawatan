@@ -3,7 +3,7 @@
 	class Model_user extends CI_Model {
 
 		public function cek_user($data) {
-			$query = $this->db->get_where('mst_user', $data);
+			$query = $this->db->get('mst_user', $data);
 			return $query;
 		}
 
@@ -29,6 +29,11 @@
 
 		public function update($config,$id){
 			$this->db->where('id', $id);
+			$this->db->update('mst_user', $config);
+		}
+
+		public function update_sandi($config,$username){
+			$this->db->where('username', $username);
 			$this->db->update('mst_user', $config);
 		}
 

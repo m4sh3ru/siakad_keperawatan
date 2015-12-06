@@ -15,10 +15,15 @@ html,
 body {
   overflow-x: hidden!important;
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 12px !important;
+  font-size: 13px !important;
   -webkit-font-smoothing: antialiased;
   min-height: 100%;
   background: #f9f9f9;
+}
+
+@font-face {
+    font-family: "Monaco";
+    src: url("../../assets/animate/monaco.ttf") !important;
 }
 a {
   color: #3c8dbc;
@@ -504,6 +509,7 @@ body > .header .logo .icon {
 */
 .sidebar {
   margin-bottom: 5px;
+  font-size:14px;
 }
 .sidebar .sidebar-form input:focus {
   -webkit-box-shadow: none;
@@ -1319,9 +1325,9 @@ body > .header .logo .icon {
   float: left;
   cursor: default;
 }
-.box .box-header a {
+/* .box .box-header a {
   color: #444;
-}
+} */
 .box .box-header > .box-tools {
   padding: 5px 10px 5px 5px;
 }

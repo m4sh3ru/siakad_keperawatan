@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database', 'session', 'form_validation', 'excel');
+$autoload['libraries'] = array('database', 'session', 'form_validation', 'excel', 'konversi');
 
 
 /*
@@ -64,7 +64,7 @@ $autoload['libraries'] = array('database', 'session', 'form_validation', 'excel'
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url', 'form', 'dompdf_helper');
+$autoload['helper'] = array('url', 'form');
 
 
 /*

@@ -116,5 +116,8 @@
 		  $('.panel-collapse:not(".in")')
 			.collapse('show');
 		});
+	  	$('#Matkul').on('hidden.bs.modal', function () {
+            window.location.reload();
+        });
 	});
 </script>

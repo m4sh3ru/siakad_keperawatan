@@ -36,6 +36,7 @@
 								<td><?= $rs['last_login']; ?></td>
 								<td><?= $rs['status']; ?></td>
 								<td align="center">
+									<a href="#" data-toggle="modal" data-target="#showPass" title="Lihat Password Pengguna"><span class="fa fa-search-plus"></span></a> |
 									<?php echo anchor('admin/account/edit/'.$rs['id'],'<i class="glyphicon glyphicon-edit" title="Edit Angkatan" rel="tooltip"></i>') ?> |
 									<a href="<?php echo site_url('admin/account/del/'.$rs['id']) ?>"
 									onclick="return confirm('Apakah anda yakin menghapus akun pengguna ini?')"><i class="glyphicon glyphicon-trash text-danger" title="Delete Tahun Angkatan" rel="tooltip"></i></a>

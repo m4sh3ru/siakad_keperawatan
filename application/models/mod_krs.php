@@ -6,7 +6,7 @@
 		}
 
 		function get_all_krs(){
-			$this->db->where('ref_prodi_id',$this->uri->segment(4));
+			$this->db->where('ref_prodi_id',$this->session->userdata('prodi'));
 			$sql = $this->db->get('mst_krs');
 			return $sql->result_array(); 
 		}
@@ -47,7 +47,7 @@
 
 		function get_semester(){
 			#$this->db->distinct();
-			$this->db->where('ref_prodi_id', $this->uri->segment(4));
+			$this->db->where('ref_prodi_id', $this->session->userdata('prodi'));
 			$sql = $this->db->get('mst_krs')->result_array();
 			
 			if($sql != NULL){
@@ -87,6 +87,39 @@
 			$sql = $this->db->get('mst_mahasiswa');
 
 			return $sql->result_array();
+		}
+
+		function krs_mhs($mhs){
+			$this->db->where('nim', $mhs);
+			$sql = $this->db->get('mst_mahasiswa')->result_array();
+
+			
+			foreach($sql as $mh){
+				$data = ['prodi'=> $mh['ref_prodi_id'], 'mahasiswa'=> $mh['id'],];
+				$this->session->set_userdata($data);
+			}
+		}
+
+
+		function get_krs_by_sms($mhs, $sms){
+			$this->db->where('nim', $mhs);
+			$sql = $this->db->get('mst_mahasiswa')->result_array();
+
+			
+			foreach($sql as $mh){
+				$data = ['prodi'=> $mh['ref_prodi_id'], 'mahasiswa'=> $mh['id'],];
+				$this->session->set_userdata($data);
+				return $this->db->select('*')
+							->select('mst_matkul.id as id_matkul')
+							->from('mst_krs')
+	        				->join('mst_matkul', 'mst_matkul.id = mst_krs.mst_matkul_id')
+							->where('mst_krs.ref_prodi_id',$mh['ref_prodi_id'])
+							->where('mst_matkul.semester',$sms)
+							->group_by('mst_matkul.id')
+							->get()
+							->result_array();
+			}
+			
 		}
 
 	}

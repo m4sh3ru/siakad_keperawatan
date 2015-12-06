@@ -9,13 +9,14 @@
         <!-- font Awesome -->
          <link href="<?php echo base_url(); ?>assets2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
+        <link href="<?php echo base_url(); ?>assets/animate/a.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets2/css/AdminLTE.css" rel="stylesheet" type="text/css" />
-
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets2/img/icon.ico">
     </head>
     <body class="bg-black">
 
-        <div class="form-box" id="login-box">
-            <div class="header">Log In <span class="fa fa-expeditedssl"></span></div>
+        <div class="form-box animated fadeInDown" id="login-box">
+            <div class="header"><a href="<?php echo base_url('/') ?>" style="color:#fff;"><span class="fa fa-lock fa-2x"></span></a></div>
             <?php echo form_open('auth/cek_login'); ?>
             
                 <div class="body bg-gray">
@@ -27,7 +28,7 @@
                     </div>
                     <div class="form-group">
                         <div class="input-group">
-                            <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
+                            <div class="input-group-addon"><i class="fa fa-key"></i></div>
                             <input type="password" name="password" class="form-control" placeholder="Password" required/>
                         </div>
                         
@@ -37,7 +38,7 @@
                     </div>
                 </div>
                 <div class="footer">                                                               
-                    <button type="submit" class="btn bg-olive btn-block">Login Now <span class="fa fa-sign-in"></span></button>  
+                    <button type="submit" class="btn bg-olive btn-block btn-flat">Login Now <i class="fa fa-refresh fa-spin"></i></button>  
 
                 </div>
             <?php echo form_close(); ?>

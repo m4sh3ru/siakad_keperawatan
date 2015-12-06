@@ -5,11 +5,13 @@ class Mahasiswa extends CI_Controller{
 
 			parent::__construct();
 
-			if ($this->session->userdata('username')=="") {
-				# code...
-				redirect('auth');
+			if ($this->session->userdata('username')=='') {
+				redirect ('/');
+			}elseif ($this->session->userdata('level')==3) {
+				redirect ('mahasiswa', 'refresh');
 			}
 			$this->load->library('upload');
+			$this->load->helper('download');
 			$this->load->model(array('mod_periode', 'mod_prodi', 'mod_mahasiswa'));
 		}
 
@@ -31,19 +33,21 @@ class Mahasiswa extends CI_Controller{
 			$tempat_lahir = $this->input->post('tempat_lahir');
 			$tgl_lahir = $this->input->post('tgl_lahir');
 			$periode = $this->input->post('periode');
+			$jk = $this->input->post('jk');
 			$jurusan = $this->input->post('prodi');
 			$no_telp = $this->input->post('no_telp');
 			$alamat = $this->input->post('alamat');
 
-			if (isset($klik)) {
-							# code...
+			if ($nim) {
 				$this->mod_mahasiswa->add_mahasiswa($nim, $nm_mahasiswa, 
-					$tempat_lahir,$periode,  $tgl_lahir, $jurusan, $agama, $no_telp, $alamat);
+					$tempat_lahir,$periode,  $tgl_lahir, $jk, $jurusan, $agama, $no_telp, $alamat);
 				$this->session->set_flashdata('notif', '<p id="notif" class="alert alert-success" id="notif">Data Inputan Mahasiswa telah berhasil disimpan.</p>');
 				redirect ('admin/mahasiswa', 'refresh');				
-			}
+			}else{
 				$this->session->set_flashdata('notif', '<p id="notif" class="alert alert-danger" id="notif">Maaf!Anda mengakses halaman secara tidak sah!</p>');
-				redirect ('admin/mahasiswa', 'refresh');			
+				redirect ('admin/mahasiswa', 'refresh');
+			}
+							
 		}
 
 		public function add_mahasiswa(){
@@ -65,6 +69,7 @@ class Mahasiswa extends CI_Controller{
 			$tempat_lahir = $this->input->post('tempat_lahir');
 			$tgl_lahir = $this->input->post('tgl_lahir');
 			$periode = $this->input->post('periode');
+			$jk = $this->input->post('jk');
 			$jurusan = $this->input->post('prodi');
 			$no_telp = $this->input->post('no_telp');
 			$alamat = $this->input->post('alamat');
@@ -72,7 +77,7 @@ class Mahasiswa extends CI_Controller{
 			if ($id !=null) {
 				# code...
 				$this->mod_mahasiswa->set_edit($nim, $nm_mahasiswa, 
-					$tempat_lahir,$periode,  $tgl_lahir, $jurusan, $agama, $no_telp, $alamat, $id);
+					$tempat_lahir,$periode,  $tgl_lahir, $jk, $jurusan, $agama, $no_telp, $alamat, $id);
 				$this->session->set_flashdata('notif', '<p class="alert alert-success" id="notif">Perubahan data berhasi disimpan</p>');
 				redirect('admin/mahasiswa', 'refresh');
 			}
@@ -157,90 +162,11 @@ class Mahasiswa extends CI_Controller{
 				}
 		}
 
-		function do_uploasdsdd()
-		{
-		    $config['upload_path'] = './import_files/';
-		    $config['allowed_types'] = 'xls';
-		                
-		    $this->load->library('upload', $config);
+		public function download_template(){
+			$data = file_get_contents("./uploaded/temp/format_import_mahasiswa.xlsx"); // Read the file's contents
+			$name = 'data_mahasiswa.xlsx';
 
-		     if ( ! $this->upload->do_upload())
-		     {
-		            $data = array('error' => $this->upload->display_errors());
-		            $this->session->set_flashdata('notif', 'Insert failed. Please check your file, only .xls file allowed.');
-		     }
-		     else
-		     {
-		            $data = array('error' => false);
-		            $upload_data = $this->upload->data();
-
-		            $this->load->library('excel_reader');
-		            $this->excel_reader->setOutputEncoding('CP1251');
-
-		            $file =  $upload_data['full_path'];
-		            $this->excel_reader->read($file);
-		            error_reporting(E_ALL ^ E_NOTICE);
-
-		            // Sheet 1
-		            $data = $this->excel_reader->sheets[0] ;
-		            $dataexcel = Array();
-		            for ($i = 1; $i <= $data['numRows']; $i++) {
-		               if($data['cells'][$i][1] == '') break;
-		               $dataexcel[$i-1]['chapternumber'] = $data['cells'][$i][1];
-		               $dataexcel[$i-1]['title'] = $data['cells'][$i][2];
-		               $dataexcel[$i-1]['text1'] = $data['cells'][$i][3];
-		             $dataexcel[$i-1]['text2'] = $data['cells'][$i][4];
-		            }
-			    //cek data
-			    $check= $this->Querypage->search_chapter($dataexcel);
-			    if (count($check) > 0)
-				    {
-				      $this->Querypage->update_chapter($dataexcel);
-				      // set pesan
-				      $this->session->set_flashdata('msg_excel', 'update data success');
-				  }else{
-				      $this->Querypage->insert_chapter($dataexcel);
-				      // set pesan
-				      $this->session->set_flashdata('msg_excel', 'inserting data success');
-				  }
-			  }
-		  	redirect('admin/mahasiswa');
-		}
-
-		public function excel(){
-			$file = './uploaded/data_pemilih.xls';
-			//load the excel library
-			$this->load->library('excel');
-			//read file from path
-			$objPHPExcel = PHPExcel_IOFactory::load($file);
-			//get only the Cell Collection
-			$cell_collection = $objPHPExcel->getActiveSheet()->getCellCollection();
-			//extract to a PHP readable array format
-			foreach ($cell_collection as $cell) {
-			    $column = $objPHPExcel->getActiveSheet()->getCell($cell)->getColumn();
-			    $row = $objPHPExcel->getActiveSheet()->getCell($cell)->getRow();
-			    $data_value = $objPHPExcel->getActiveSheet()->getCell($cell)->getValue();
-			    //header will/should be in row 1 only. of course this can be modified to suit your need.
-			    if ($row == 1) {
-			        $header[$row][$column] = $data_value;
-			    } else {
-			        $arr_data[$row][$column] = $data_value;
-			    }
-			}
-			//send the data in an array format
-			$data['header'] = $header;
-			$data['values'] = $arr_data;
-			print_r($data['header']);
-			print("<br><br>");
-			echo "Here is the data"."<br>";
-			foreach($data['values'] as $r){
-				echo $r['A'].'<br>';
-				echo $r['B'].'<br>';
-				echo $r['C'].'<br>';
-				echo $r['D'].'<br>';
-				echo $r['E'].'<br><br>';
-				echo "NEXT"."<br>";
-			}
+			force_download($name, $data); 
 		}
 	}
 ?>

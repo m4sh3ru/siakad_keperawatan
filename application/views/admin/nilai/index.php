@@ -46,17 +46,17 @@
 		                    </select>
 		                </div>
 	                </div>
-	                <div class="form-group">
-						<label>Kelas</label>
-						<div class="input-group col-sm-5">
-							<select name="kelas" id="" class="form-control" >
-								<option value="">Pilih Kelas Mahasiswa :</option>
-								<?php foreach($kelas as $rs): ?>
-								<option value="<?php echo $rs['id']; ?>"><?php echo $rs['nama_kelas']; ?></option>
-								<?php endforeach; ?>
-							</select>
-						</div>
-					</div>
+	               <!--  <div class="form-group">
+	               						<label>Kelas</label>
+	               						<div class="input-group col-sm-5">
+	               							<select name="kelas" id="" class="form-control" >
+	               								<option value="">Pilih Kelas Mahasiswa :</option>
+	               								<?php foreach($kelas as $rs): ?>
+	               								<option value="<?php echo $rs['id']; ?>"><?php echo $rs['nama_kelas']; ?></option>
+	               								<?php endforeach; ?>
+	               							</select>
+	               						</div>
+	               					</div> -->
 				</div>
 				<div class="modal-footer">
 					<button type="submit" class="btn btn-success btn-sm"><span class="fa fa-filter"></span> Filter Now</button>
@@ -67,17 +67,3 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-			$(function() {
-				$("#example1").dataTable();
-				$('#example2').dataTable({
-					"bPaginate": true,
-					"bLengthChange": false,
-					"bFilter": false,
-					"bSort": true,
-					"bInfo": true,
-					"bAutoWidth": false
-				});
-			});
-		</script>

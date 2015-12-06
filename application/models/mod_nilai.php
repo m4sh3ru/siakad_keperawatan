@@ -15,30 +15,30 @@
 			return $sql->result_array();
 		}
 
-		function add_nilai($a, $b, $c, $d, $e, $f){
+		function add_nilai($a, $b, $c, $d, $f){
 			$config = array(
 				'mst_mahasiswa_id'=>$a,
 				'mst_matkul_id'=>$b,
 				'ref_prodi_id'=>$c,
 				'ref_semester_id'=>$d,
-				'ref_kelas_id'=>$e,
+				#'ref_kelas_id'=>$e,
 				'nilai'=>$f,
 			);
 
 			$this->db->insert('mst_nilai', $config);
 		}
 
-		function check($a, $b, $c, $d, $e){
+		function check($a, $b, $c, $d){
 			return $this->db->where('mst_mahasiswa_id', $a)
 							->where('mst_matkul_id', $b)
 							->where('ref_prodi_id', $c)
 							->where('ref_semester_id', $d)
-							->where('ref_kelas_id', $e)
+							#->where('ref_kelas_id', $e)
 					 	->get('mst_nilai')
 					 	->result_array();
 		}
 
-		function update_nilai($a, $b, $c, $d, $e, $f){
+		function update_nilai($a, $b, $c, $d, $f){
 			$data = [
 				'nilai'=>$f,
 			];
@@ -46,7 +46,7 @@
 							->where('mst_matkul_id', $b)
 							->where('ref_prodi_id', $c)
 							->where('ref_semester_id', $d)
-							->where('ref_kelas_id', $e)
+							#->where('ref_kelas_id', $e)
 					 		->update('mst_nilai', $data);
 		}
 

@@ -14,7 +14,7 @@
 					<label for="inputEmail3" class="col-sm-2 control-label">Nama Mahasiswa :</label>
 					<div class="col-sm-5">
 						<?php foreach($mahasiswa as $mh): ?>
-							<input type="text" class="form-control" value="<?php echo $mh['nama_lengkap']; ?>" disabled>
+							<input type="text" class="form-control" value="<?php echo $mh['nama_lengkap'].' ['.$mh['nim'].']'; ?>" disabled>
 						<?php endforeach; ?>
 					</div>
 				</div>
@@ -34,14 +34,14 @@
 					<?php endforeach; ?>
 					</div>
 				</div>
-				<div class="form-group">
+				<!-- <div class="form-group">
 					<label for="inputEmail3" class="col-sm-2 control-label">Kelas:</label>
 					<div class="col-sm-5">
 					<?php foreach($kelas as $kl): ?>
 						<input type="text" class="form-control" value="<?php echo $kl['nama_kelas']; ?>" disabled>
 					<?php endforeach; ?>
 					</div>
-				</div>
+				</div> -->
 			</form>
 		</div>
 	</div>
@@ -67,7 +67,7 @@
 								$sql = $this->db->where('mst_mahasiswa_id',$this->session->userdata('mahasiswa'))
 								->where('mst_matkul_id',$rs['id'])
 						 		->where('ref_semester_id',$this->session->userdata('semester'))
-						 		->where('ref_kelas_id',$this->session->userdata('kelas'))
+						 		#->where('ref_kelas_id',$this->session->userdata('kelas'))
 						 		->get('mst_nilai')
 						 		->result_array();
 						?>
@@ -79,7 +79,7 @@
 							<?php if($sql != NULL): ?>
 								<?php foreach($sql as $n): ?>
 									
-										<input type="text" class="form-control" id="nilai<?php echo $rs['id']; ?>" <?php if($rs['id']==$n['mst_matkul_id']) {echo "value=".$n['nilai'];} ?>>
+										<input type="text" class="form-control" id="nilai<?php echo $rs['id']; ?>" <?php if($rs['id']==$n['mst_matkul_id']) {echo "value=".str_replace('.',',',$n['nilai']);} ?>>
 									
 								<?php endforeach; ?>
 
@@ -105,8 +105,8 @@
 										$.post('<?php echo base_url("admin/nilai/auth_insert_nilai"); ?>', {id:id, matkul:matkul}, function(data){
 											if(data){
 												//$('#nt').fadeIn(4000);
-												$('#nt').fadeIn('slow').html(data).fadeOut();
-												window.location.reload();
+												$('#nt').html(data).fadeIn('slow').fadeOut(2000);
+												//window.location.reload();
 											}
 											
 										});

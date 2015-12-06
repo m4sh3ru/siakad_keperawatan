@@ -43,7 +43,7 @@
 					 </div>
 					  <div class="form-group">
 						  <label>Jenis Kelamin</label>
-						 <select name="prodi" id="" class="form-control" required>
+						 <select name="jk" id="" class="form-control" required>
 							  <option value="">Pilih Jenis Kelamin</option>
 							 <option value="1">Laki-Laki</option>
 							 <option value="2">Perempuan</option>
@@ -89,7 +89,7 @@
 	 <div class="box-footer">
 		  <div class="row">
 				<div class="col-md-12">
-					  <button class="btn btn-sm btn-success" type="submit" name="update"><i class="fa fa-save"></i> Simpan</button>
+					  <button class="btn btn-sm btn-success" type="submit" name="add_mahasiswa" value="add_mahasiswa"><i class="fa fa-save"></i> Simpan</button>
 				</div>
 			  
 		  </div>

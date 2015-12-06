@@ -14,22 +14,19 @@
         <link href="<?php echo base_url(); ?>assets2/css/ionicons.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
 
-      
+        <link href="<?php echo base_url(); ?>assets/animate/a.css" rel="stylesheet" type="text/css" />
+
         <!-- bootstrap wysihtml5 - text editor -->
         <link href="<?php echo base_url(); ?>assets2/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
         <link href="<?php echo base_url(); ?>assets2/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+
         <!-- Data Table -->
         <link href="<?php echo base_url(); ?>assets2/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
         <script src="<?php echo base_url(); ?>assets2/js/jquery-2.1.1.js" type="text/javascript"></script>
 
         <script src="<?php echo base_url(); ?>assets/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/logo.jpg">
         <style type="text/css">
             body{
                 font-size: 13px !important;
@@ -40,6 +37,16 @@
                 vertical-align: top;
                 border-bottom: 1px solid rgb(221, 221, 221) !important;
             }
+            .box-header {
+                color: #444;
+                display: block;
+                padding: 5px;
+                position: relative;
+            }
+            .box-header.with-border {
+                border-bottom: 1px solid #F4F4F4;
+            }
+            
         </style>
     </head>
     <body class="skin-blue">
@@ -47,7 +54,7 @@
         <header class="header">
             <a href="index.html" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                SIAKAD Akper 
+                <div class="animated fadeInDown">SIAKAD Akper</div>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -73,20 +80,11 @@
                                 <span><?php echo $this->session->userdata('username');?><i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <!-- User image -->
-                                <li class="user-header bg-light-blue">
-                                    <img src="img/avatar3.png" class="img-circle" alt="User Image" />
-                                    <p>
-                                        Jane Doe - Web Developer
-                                        <small>Member since Nov. 2012</small>
-                                    </p>
-                                </li>
-                                <!-- Menu Body -->
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
-                                    <div class="pull-left">
+                                    <!-- <div class="pull-left">
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
+                                    </div> -->
                                     <div class="pull-right">
                                         <a href="<?php echo site_url('admin/dashboard/logout'); ?>" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
@@ -107,7 +105,7 @@
             <aside class="right-side">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>
+                    <h1 class="animated fadeInDown">
                        <?php echo strtoupper($header); ?>
                     </h1>
 
@@ -170,6 +168,13 @@
             $('#notif').hide();
             $('#notif').fadeIn(2000);
             $('#notif').fadeOut('slow');
+            $('.box-title').addClass('animated fadeInDown');
+
+          /*  $(document).bind('contextmenu', function (e) {
+              e.preventDefault();
+              alert('Klik Kanan Tidak diijinkan!');
+            });*/
+
         </script>
     </body>
 </html>

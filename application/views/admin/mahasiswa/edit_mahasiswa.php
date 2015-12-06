@@ -1,13 +1,14 @@
 <div class="row-fluid">
 <div class="box box-info"> 
- <?php echo form_open('admin/mahasiswa/auth_add_mahasiswa'); ?>
+ <?php echo form_open('admin/mahasiswa/auth_edit_mahasiswa'); ?>
 		<div class="box-body">
 				<div class="row">
 					 <?php foreach ($mhs_by_id as $rs) : ?>
 						<div class="col-sm-4">
 								<div class="form-group">
-										<label>NIM Mahasiswa</label>
-										<input type="text" name="nim" class="form-control" value="<?php echo $rs['nim'] ?>" placeholder="NIM Mahasiswa" required>
+									<label>NIM Mahasiswa</label>
+									<input type="text" name="nim" class="form-control" value="<?php echo $rs['nim'] ?>" placeholder="NIM Mahasiswa" required>
+									<input type="hidden" name="id" class="form-control" value="<?php echo $rs['id'] ?>">
 								</div>
 
 								<div class="form-group">
@@ -43,7 +44,7 @@
 								</div>
 								<div class="form-group">
 										<label>Jenis Kelamin</label>
-									 <select name="prodi" id="" class="form-control" required>
+									 <select name="jk" id="" class="form-control" required>
 											<option value="">Pilih Jenis Kelamin</option>
 										 <option value="1" <?php if($rs['jenis_kelamin']==1) echo 'selected'; ?>>Laki-Laki</option>
 										 <option value="2" <?php if($rs['jenis_kelamin']==2) echo 'selected'; ?>>Perempuan</option>

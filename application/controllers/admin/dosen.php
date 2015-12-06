@@ -3,13 +3,13 @@ class Dosen extends CI_Controller{
 	
 	public function __construct(){
 
-		parent::__construct();
-		if ($this->session->userdata('username')=="") {
-			# code...
-			redirect ('auth');
+		if ($this->session->userdata('username')=='') {
+			redirect ('/');
+		}elseif ($this->session->userdata('level')==3) {
+			redirect ('mahasiswa', 'refresh');
 		}
+		$this->load->helper('dompdf', 'file');
 		$this->load->model(['mod_dosen', 'mod_mahasiswa']);
-		$this->load->helper('dompdf_helper');
 	}
 
 	public function index(){

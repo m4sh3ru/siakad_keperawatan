@@ -6,6 +6,7 @@
 		<div class="panel-heading">		
 		<?php echo anchor('admin/mahasiswa/add_mahasiswa', '<button class="btn btn-sm btn-flat btn-success"><span class="fa fa-plus-circle"></span> Tambahkan Mahasiswa</button>'); ?>
 		<a href="#" class="btn btn-sm btn-flat btn-info" data-toggle="modal" data-target="#myModal"><span class="fa fa-file-excel-o"></span> Import Excel</a>
+		<a href="<?php echo base_url('admin/mahasiswa/download_template') ?>" target="_blank" class="btn btn-sm btn-flat btn-default pull-right"><span class="fa fa-cloud-download"></span> Download Template Excel</a>
 		<?php $this->load->view('admin/mahasiswa/import_excel'); ?>
 
 		</div>

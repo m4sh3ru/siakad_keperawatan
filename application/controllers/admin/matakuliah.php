@@ -3,8 +3,10 @@ class Matakuliah extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 
-		if($this->session->userdata('username')==""){
-			redirect('auth');
+		if ($this->session->userdata('username')=='') {
+			redirect ('/');
+		}elseif ($this->session->userdata('level')==3) {
+			redirect ('mahasiswa', 'refresh');
 		}
 
 		$this->load->model('mod_matkul');

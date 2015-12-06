@@ -20,14 +20,14 @@
                             <label for="no_izin">Password :</label>
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
-                                <input type="password" name="pass" class="form-control" placeholder="Password" maxlength="9" required>
+                                <input type="password" name="pass" id="pass" class="form-control" placeholder="Password" maxlength="9" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Re-type Password :</label>
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
-                                <input type="password" name="pass2" class="form-control" placeholder="Re-Type Password" maxlength="9" required>
+                                <input type="password" name="pass2" id="password_confirm" oninput="check(this)" class="form-control" placeholder="Re-Type Password" maxlength="9" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -58,3 +58,13 @@
         </div>
     </div>    
 </div>
+  <script language='javascript' type='text/javascript'>
+     function check(input) {
+       if (input.value != document.getElementById('pass').value) {
+       input.setCustomValidity('Password harus sama!');
+       } else {
+       // input is valid -- reset the error message
+       input.setCustomValidity('');
+       }
+     }
+   </script>
