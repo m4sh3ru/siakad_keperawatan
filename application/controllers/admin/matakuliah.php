@@ -13,6 +13,9 @@ class Matakuliah extends CI_Controller{
 	}
 
 	public function index(){
+		$session = ['prodi'=>'', 'mahasiswa'=>''];
+		$this->session->unset_userdata($session);
+		
 		$data['header'] = "Data Mata Kuliah";
 		$data['content'] = 'admin/matkul/index';
 		$data['get_matkul'] = $this->mod_matkul->get_matkul();

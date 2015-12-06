@@ -29,23 +29,31 @@ class Khs extends CI_Controller{
 	public function auth_filter(){
 		$prodi = $this->input->post('prodi');
 		$mahasiswa = $this->input->post('mahasiswa');
+		$exists = $this->mod_khs->check($prodi, $mahasiswa);
 
-		if(is_null($prodi) && is_null($prodi) ){
+		if(is_null($prodi)){
 			$this->session->set_flashdata('notif', '<p class="alert alert-danger" id="notif"><strong>Maaf!</strong> Data yang anda cari tidak ditemukan di dalam sistem.</p>');
 			redirect('admin/khs', 'refresh');
 		}
-		$session = [
-			'prodi'=>$prodi,
-			'mahasiswa'=>$mahasiswa,
-		];
-		$this->session->set_userdata($session);
-		#redirect ke method hasil pencarian
-		$this->session->set_flashdata('notif', '<p class="alert alert-success" id="notif"><strong>Berhasil!</strong> Data pencarian ditemukan.</p>');
-		redirect('admin/khs/khs_mahasiswa', 'refresh');
+		if($exists == NULL){
+			$this->session->set_flashdata('notif', '<p class="alert alert-danger" id="notif"><strong>Error!</strong> Data pencarian <strong>tidak</strong> ditemukan.</p>');
+			redirect('admin/khs', 'refresh');
+		}else{
+			$session = [
+				'prodi'=>$prodi,
+				'mahasiswa'=>$mahasiswa,
+			];
+			$this->session->set_userdata($session);
+			#redirect ke method hasil pencarian
+			$this->session->set_flashdata('notif', '<p class="alert alert-success" id="notif"><strong>Berhasil!</strong> Data pencarian ditemukan.</p>');
+			redirect('admin/khs/khs_mahasiswa', 'refresh');
+		}
+		
 
 	}
 
 	public function khs_mahasiswa(){
+		
 		if($this->session->userdata('prodi') == NULL){
 			redirect('admin/khs', 'refresh');
 		}

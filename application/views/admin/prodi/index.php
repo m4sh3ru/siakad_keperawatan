@@ -4,7 +4,7 @@
 	<!-- END NOTIFICATION -->
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<?php echo anchor('admin/prodi/add_prodi', '<button class="btn btn-sm btn-success"><span class="fa fa-plus-circle"></span> Tambahakan Prodi Baru</button>'); ?>
+			<?php echo anchor('admin/prodi/add_prodi', '<button class="btn btn-sm btn-success"><span class="fa fa-plus-circle"></span> Tambahkan Prodi Baru</button>'); ?>
 		</div>
 		<div class="panel-body">
 
@@ -16,7 +16,7 @@
 								<th>No</th>
 								<th>No Izin</th>
 								<th>Nama Prodi</th>
-								<th>Nama Direktur</th>
+								<th>Ketua Prodi</th>
 								<th>Option</th>
 							</tr>	
 						</thead>

@@ -47,6 +47,7 @@
 		public function prodi()
 		{
 			$prodi = $this->session->userdata('prodi');
+			
 			if($prodi==NULL){
 				redirect('admin/krs', 'refresh');
 			}
@@ -64,7 +65,7 @@
 
 		public function insert_krs(){
 			$matkul = $this->input->post('matkul');
-			$prodi = $this->input->post('prodi');
+			$prodi = $this->session->userdata('prodi');
 			
 			if(!is_null($matkul)){
 				foreach($matkul as $rs){

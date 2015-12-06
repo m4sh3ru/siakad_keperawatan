@@ -50,24 +50,27 @@
 					  	</thead>
 					  	<tbody>
 				  		<?php $no=1; ?>
-				  		<?php $t_sms = 1; ?>
+				  		<?php $t_sms = 1; $sms=0; ?>
 						<?php $sks = 0; ?>
 						<?php $total = 0; ?>
 				  		<?php foreach($khs as $rs): ?>
 							<tr>
 							  	<th class="text-center"><?php echo $no; ?></th>
-							  	<?php if(($rs['semester'])&&($this->mod_khs->t_sms($rs['id_sms'])>1)):?>
-								<?php if($t_sms==1):?>
-							  	<td style="vertical-align: middle;" rowspan="<?php echo $this->mod_khs->t_sms($rs['id_sms']); ?>">
-						  			<?php echo $rs['semester']; ?>
-							  	</td>
-							  	<?php endif; ?>
-							  	<?php $t_sms++; ?>
-							  	<?php else: ?>
-						  		<td>
-						  			<?php echo ucwords($rs['semester']); ?>
-						  		</td>
+					  			<?php
+					  			if($this->mod_khs->t_sms($rs['id_sms'])>1):
+									if(($sms==0) or ($sms != $rs['id_sms'])): ?>
+										<td style="vertical-align: middle;" rowspan="<?php echo $this->mod_khs->t_sms($rs['id_sms']); ?>">
+								  			<?php echo ucwords($rs['semester']); ?>
+									  	</td>
+					  				<?php $sms = $rs['id_sms']; ?>
+					  				<?php endif; ?>
+						  		<?php else: ?>
+						  			<td>
+						  				<?php echo ucwords($rs['semester']); ?>
+						  			</td>
 						  		<?php endif; ?>
+						  		
+						  		
 							  	<td><?php echo $rs['nama_matkul']; ?></td>
 							  	<td class="text-center">
 							  		<?php echo $rs['sks']; ?>
@@ -109,7 +112,7 @@
 							<tr>
 								<th><i>Index Prestasi</i></th>
 								<th>:</th>
-								<th><i><?php echo number_format($total/$sks, 2, ',', ''); ?></i></th>
+								<th><i><?php if($total != NULL) echo number_format($total/$sks, 2, ',', ''); ?></i></th>
 							</tr>
 						</table>
 					</div>

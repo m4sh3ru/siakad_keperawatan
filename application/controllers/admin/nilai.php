@@ -31,23 +31,31 @@ class Nilai extends CI_Controller{
 	}
 
 	public function filter(){
+
 		$id_prodi = $this->input->post('prodi');
 		$id_sms = $this->input->post('semester');
 		#$id_kls = $this->input->post('kelas');
 		$id_mhs = $this->input->post('mahasiswa');
 
-		$session = [
-				'prodi'=>$id_prodi,
-				'semester'=>$id_sms,
-				#'kelas'=>$id_kls,
-				'mahasiswa'=>$id_mhs,
-			];
-		$this->session->set_userdata($session);
-
-		if($this->session->userdata('prodi') == NULL){
+		if($id_prodi == NULL){
 			redirect('admin/nilai', 'refresh');
 		}
-		redirect('admin/nilai/nilai_mahasiswa/', 'refresh'); 
+
+		$exists = $this->mod_khs->check($id_prodi, $id_mhs);
+		if($exists == NULL){
+			$this->session->set_flashdata('notif', '<p class="alert alert-danger" id="notif"><strong>Error!</strong> Data pencarian <strong>tidak</strong> ditemukan.</p>');
+			redirect('admin/nilai', 'refresh');
+		}else{
+			$session = [
+					'prodi'=>$id_prodi,
+					'semester'=>$id_sms,
+					#'kelas'=>$id_kls,
+					'mahasiswa'=>$id_mhs,
+				];
+			$this->session->set_userdata($session);
+			redirect('admin/nilai/nilai_mahasiswa/', 'refresh'); 
+		}
+
 	}
 
 	public function nilai_mahasiswa(){

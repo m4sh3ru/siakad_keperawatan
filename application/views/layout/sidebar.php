@@ -15,8 +15,8 @@
             <ul class="treeview-menu">
                 <li><a href="<?php echo site_url('admin/prodi'); ?>"><i class="fa fa-mortar-board"></i>Program Studi</a></li>
                 <li><a href="<?php echo site_url('admin/dosen'); ?>"><i class="fa fa-puzzle-piece"></i>Dosen</a></li>
-                <li><a href="<?php echo site_url('admin/kelas'); ?>"><i class="fa fa-cube"></i>Kelas</a></li>
-                <li><a href="<?php echo site_url('admin/nilai/grade'); ?>"><i class="fa fa-sort-alpha-asc"></i>Grade Nilai</a></li>
+                <!-- <li><a href="<?php echo site_url('admin/kelas'); ?>"><i class="fa fa-cube"></i>Kelas</a></li> -->
+                <!-- <li><a href="<?php echo site_url('admin/nilai/grade'); ?>"><i class="fa fa-sort-alpha-asc"></i>Grade Nilai</a></li> -->
                 <li><a href="<?php echo site_url('admin/tahun_ajaran'); ?>"><i class="fa fa-stack-overflow"></i>Tahun Pelajaran</a></li>
             </ul>
         </li>

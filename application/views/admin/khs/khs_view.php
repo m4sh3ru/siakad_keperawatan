@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>MENAMPILKAN DETAIL SURAT | e-Surat</title>
+		<title>Siakad AKPER PAMENANG | Kartu Hasil Studi</title>
 		<link media="print" rel="Alternate" href="print.pdf">
 		<link href="./public/assets2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 		<style type="text/css" >
@@ -197,46 +197,45 @@
 								<td></td>
 							</tr> -->
 							<?php $no=1; ?>
-				  		<?php $t_sms = 1; ?>
+				  		<?php $t_sms = 1;$sms=0; ?>
 						<?php $sks = 0; ?>
 						<?php $total = 0; ?>
 				  		<?php foreach($khs as $rs): ?>
 							<tr>
-								<?php if(($rs['semester'])&&($this->mod_khs->t_sms($rs['id_sms'])>1)):?>
-									<?php if($t_sms==1):?>
-								  	<td class="text-center"rowspan="<?php echo $this->mod_khs->t_sms($rs['id_sms']); ?>"><?php echo $no; ?></td>
-								  	
-								  	<td style="vertical-align: middle;" rowspan="<?php echo $this->mod_khs->t_sms($rs['id_sms']); ?>">
-							  			<?php echo ucwords($rs['semester']); ?>
-								  	</td>
-								  	
-								  	<?php endif; ?>
-							  		<?php $t_sms++; ?>
-							  	<?php else: ?>
-							  		<td class="text-center"><?php echo $no; ?></td>
-							  		<td>
-							  			<?php echo ucwords($rs['semester']); ?>
-							  		</td>
-							  		<?php endif; ?>
-								  	<td><?php echo $rs['nama_matkul']; ?></td>
-								  	<td class="text-center">
-								  		<?php echo $rs['sks']; ?>
-								  		<?php $sks = $sks+$rs['sks']; ?>
-								  	</td>
-								  	<td class="text-center">
-							  		<?php $nilai = $this->mod_khs->get_nilai($this->session->userdata('prodi'),$this->session->userdata('mahasiswa'), $rs['id_matkul']); 
+								<td class="text-center"><?php echo $no; ?></td>
+								<?php
+					  			if($this->mod_khs->t_sms($rs['id_sms'])>1):
+									if(($sms==0) or ($sms != $rs['id_sms'])): ?>
+										<td style="vertical-align: middle;" rowspan="<?php echo $this->mod_khs->t_sms($rs['id_sms']); ?>">
+								  			<?php echo ucwords($rs['semester']); ?>
+									  	</td>
+					  				<?php $sms = $rs['id_sms']; ?>
+					  				<?php endif; ?>
+						  		<?php else: ?>
+						  			<td>
+						  				<?php echo ucwords($rs['semester']); ?>
+						  			</td>
+						  		<?php endif; ?>
 
-							  			foreach($nilai as $r){
-							  				$this->db->where('value', $r['nilai']);
-											$sql = $this->db->get('ref_grade')->result_array(); 
-							  				 	foreach($sql as $n){
-							  				 		echo strtoupper($n['grade']);
-							  				 		$val = $rs['sks']*$n['value'];
-							  				 		$total = $total+$val;
-							  				 	}
-							  			}
-							  		?>
-								  	</td>
+							  	<td><?php echo $rs['nama_matkul']; ?></td>
+							  	<td class="text-center">
+							  		<?php echo $rs['sks']; ?>
+							  		<?php $sks = $sks+$rs['sks']; ?>
+							  	</td>
+							  	<td class="text-center">
+						  		<?php $nilai = $this->mod_khs->get_nilai($this->session->userdata('prodi'),$this->session->userdata('mahasiswa'), $rs['id_matkul']); 
+
+						  			foreach($nilai as $r){
+						  				$this->db->where('value', $r['nilai']);
+										$sql = $this->db->get('ref_grade')->result_array(); 
+						  				 	foreach($sql as $n){
+						  				 		echo strtoupper($n['grade']);
+						  				 		$val = $rs['sks']*$n['value'];
+						  				 		$total = $total+$val;
+						  				 	}
+						  			}
+						  		?>
+							  	</td>
 							</tr>
 						<!-- <?php $no++; ?> -->
 						
@@ -258,7 +257,7 @@
 							<tr>
 								<td><i>Index Prestasi</i></td>
 								<td>:</td>
-								<td><i><?php echo number_format($total/$sks, 2, ',', ''); ?></i></td>
+								<td><i><?php if($total !=NULL) echo number_format($total/$sks, 2, ',', ''); ?></i></td>
 							</tr>
 						</table>
 					</div>

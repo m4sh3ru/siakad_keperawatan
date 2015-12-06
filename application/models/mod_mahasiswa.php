@@ -1,5 +1,6 @@
 <?php
 	class Mod_mahasiswa extends CI_Controller{
+		
 		function get_mahasiswa(){
 			$this->db->select('*');
 			$this->db->select('mst_mahasiswa.id as id');
@@ -49,7 +50,7 @@
 			$data = [
 				'username'=>$a,
 				'password'=>md5($a),
-				'text'=>$a,
+				'password_text'=>$a,
 				'ref_level_id'=>3,
 			];
 			$this->db->insert('mst_user', $data);

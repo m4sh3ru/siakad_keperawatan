@@ -17,6 +17,7 @@ class Mod_khs extends CI_Model{
 		$this->db->select('*');
 		$this->db->select('mst_matkul.id as id_matkul');
 		$this->db->select('ref_semester.id as id_sms');
+		$this->db->select('mst_matkul.semester as sms');
         $this->db->from('mst_krs');
         $this->db->join('ref_prodi', 'ref_prodi.id = mst_krs.ref_prodi_id');
         $this->db->join('mst_matkul', 'mst_matkul.id = mst_krs.mst_matkul_id');
@@ -56,6 +57,11 @@ class Mod_khs extends CI_Model{
 				 		->count_all_results();
 	}
 
-
+	function check($prodi, $mahasiswa){
+		return $this->db->where('ref_prodi_id',$prodi)
+				 ->where('id',$mahasiswa)
+				 ->get('mst_mahasiswa')
+				 ->result_array();
+	}
 
 }
