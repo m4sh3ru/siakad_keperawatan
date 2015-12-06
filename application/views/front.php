@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title> Ujian Online dan Bank Soal </title>
+	<title> SIAKAD Akademi Keperawatan Pamenang - PARE </title>
 	
 	<link href="<?php echo base_url(); ?>assets2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url(); ?>assets/animate/a.css" rel="stylesheet" type="text/css" />
