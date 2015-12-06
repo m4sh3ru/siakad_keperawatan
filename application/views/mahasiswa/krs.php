@@ -95,12 +95,12 @@
 							<?php endforeach; ?>
 						<?php else: ?>
 							<tr>
-								<td colspan="4" class="text-center"><i>Data tidak ditemukan</i></td>
+								<td colspan="5" class="text-center"><i>Data tidak ditemukan</i></td>
 							</tr>
 						<?php endif; ?>
 					<?php else: ?>
 						<tr>
-							<td colspan="4" class="text-center"><i>Data tidak ditemukan</i></td>
+							<td colspan="5" class="text-center"><i>Data tidak ditemukan</i></td>
 						</tr>
 					<?php endif; ?>
 						<tr>
