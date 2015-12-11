@@ -90,7 +90,10 @@ class Nilai extends CI_Controller{
 		$matkul = $this->input->post('matkul');
 
 		$exists = $this->mod_nilai->check($mhs, $matkul, $prodi, $sms);
-		if($nilai){
+		$check_grade2 = $this->mod_nilai->check_value_grade($nilai);
+		$check_grade = $this->db->where('value', $nilai)->get('ref_grade')->num_rows();
+		
+		if($check_grade >= 1){
 			if(!$exists){
 				$this->mod_nilai->add_nilai($mhs, $matkul, $prodi, $sms, $nilai);
 				echo "<p class='alert alert-success'><strong>Sukses!</strong> Data yang anda masukkan berhasil di proses.</p>";
@@ -100,7 +103,7 @@ class Nilai extends CI_Controller{
 			}
 			
 		}else{
-			echo "<p class='alert alert-danger'><strong>Error!</strong> Data gagal diproses. Silahkan periksa kembali.</p>";
+			echo "<p class='alert alert-danger'><strong>Error!</strong> Data gagal diproses. Nilai yang anda masukkan tidak dikenali!</p>";
 		}
 	}
 

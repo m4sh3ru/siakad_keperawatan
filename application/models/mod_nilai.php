@@ -38,6 +38,10 @@
 					 	->result_array();
 		}
 
+		function check_value_grade($nilai){
+			$this->db->query("SELECT * FROM ref_grade WHERE value = '$nilai'")->num_rows();
+		}
+
 		function update_nilai($a, $b, $c, $d, $f){
 			$data = [
 				'nilai'=>$f,

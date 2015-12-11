@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50541
 File Encoding         : 65001
 
-Date: 2015-12-06 11:36:41
+Date: 2015-12-11 21:13:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -49,7 +49,7 @@ CREATE TABLE `mst_dosen` (
   `alamat` text NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nama_lengkap` (`nama_lengkap`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of mst_dosen
@@ -58,8 +58,8 @@ INSERT INTO `mst_dosen` VALUES ('1', 'akhmad maftukh hadil kamal', '11.1.03.03.0
 INSERT INTO `mst_dosen` VALUES ('2', 'joko susilo', '66yyyt345678', 'jakarta', '2015-10-01', '0', '0', '0823456789', 'kediri');
 INSERT INTO `mst_dosen` VALUES ('10', 'memey', '98834567890', 'kediri', '2015-10-19', 'PEREMPUAN', '0', '08567654567', 'pare');
 INSERT INTO `mst_dosen` VALUES ('11', 'narutokun', '994567890', 'kediri', '2015-10-01', 'LAKI-LAKI', '0', '08567655676', 'kediri');
-INSERT INTO `mst_dosen` VALUES ('12', '3452345', '23452345', 'adsfasdfasdf', '0000-00-00', '0', '1', '0356 3456 34', '\"\"56sdfgasdfasdf');
 INSERT INTO `mst_dosen` VALUES ('13', 'Heru Setyiawan', '129293737', 'Kediri', '0000-00-00', '1', '1', '0234 5234 52', '\"sdfgdsfasdfasdf');
+INSERT INTO `mst_dosen` VALUES ('14', 'Drs. MUHSIN', '234523453', 'Tulungagung', '0000-00-00', '1', '1', '0456 3453 45', '\"\"asdfsdfasdf');
 
 -- ----------------------------
 -- Table structure for `mst_khs`
@@ -85,7 +85,7 @@ CREATE TABLE `mst_krs` (
   `ref_prodi_id` int(5) NOT NULL,
   `mst_matkul_id` int(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of mst_krs
@@ -96,6 +96,10 @@ INSERT INTO `mst_krs` VALUES ('13', '7', '12');
 INSERT INTO `mst_krs` VALUES ('14', '7', '13');
 INSERT INTO `mst_krs` VALUES ('15', '8', '11');
 INSERT INTO `mst_krs` VALUES ('16', '8', '13');
+INSERT INTO `mst_krs` VALUES ('19', '7', '14');
+INSERT INTO `mst_krs` VALUES ('20', '7', '15');
+INSERT INTO `mst_krs` VALUES ('21', '7', '16');
+INSERT INTO `mst_krs` VALUES ('22', '7', '17');
 
 -- ----------------------------
 -- Table structure for `mst_mahasiswa`
@@ -104,7 +108,7 @@ DROP TABLE IF EXISTS `mst_mahasiswa`;
 CREATE TABLE `mst_mahasiswa` (
   `id` int(3) NOT NULL AUTO_INCREMENT,
   `nim` varchar(15) NOT NULL,
-  `nama_lengkap` varchar(25) NOT NULL,
+  `nama_lengkap` varchar(50) NOT NULL,
   `tempat_lahir` varchar(50) NOT NULL,
   `ref_periode_id` int(5) NOT NULL,
   `tgl_lahir` date NOT NULL,
@@ -114,47 +118,14 @@ CREATE TABLE `mst_mahasiswa` (
   `hp` varchar(15) DEFAULT NULL,
   `alamat` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of mst_mahasiswa
 -- ----------------------------
 INSERT INTO `mst_mahasiswa` VALUES ('1', '11103030022', 'hadil kamal', '0', '0', '2010-06-10', null, '0', null, '081977342020', 'pare');
-INSERT INTO `mst_mahasiswa` VALUES ('4', '34523452345', '2adfsfadf', 'asdfasdf', '2010', '0000-00-00', null, '0', '0', '24352345', 'asdfasdf');
-INSERT INTO `mst_mahasiswa` VALUES ('5', '21341341234', 'asdfasdf', 'asdfasdf', '2010', '0000-00-00', null, '0', '0', '32452345234', '5asdfasdfasdf');
-INSERT INTO `mst_mahasiswa` VALUES ('6', '2352345235', 'Mahmud', 'safdasdf', '2010', '0000-00-00', null, '0', '0', '234523452', 'sfasdfasf');
-INSERT INTO `mst_mahasiswa` VALUES ('7', '2345234525', 'asfdasdf', 'asdfasdf', '2010', '0000-00-00', null, '0', '0', '', '');
-INSERT INTO `mst_mahasiswa` VALUES ('8', '212341234', 'asdfasdfasdf', '', '1', '0000-00-00', null, '1', '1', '', '');
-INSERT INTO `mst_mahasiswa` VALUES ('9', '352535', 'adsfasdfasdf', '', '1', '0000-00-00', null, '5', '2', '', '');
-INSERT INTO `mst_mahasiswa` VALUES ('10', '3245325', 'asdfasdfasdf', '23452345', '1', '0000-00-00', null, '1', '1', '', '');
-INSERT INTO `mst_mahasiswa` VALUES ('11', '12324124', 'asdfsdfasdf', 'asdfasdf', '1', '2012-03-04', null, '1', '1', '0123-4123-4123', 'asdfasdfasdf');
-INSERT INTO `mst_mahasiswa` VALUES ('12', '523452345235', 'asdfasdfasdf', 'asfasdf', '1', '2012-03-04', null, '1', '1', '0123 4123 4134', '');
-INSERT INTO `mst_mahasiswa` VALUES ('13', '12324124', 'asdfsdfasdf', 'asdfasdf', '1', '2012-03-04', null, '1', '1', '0123 4123 4123', 'asdfasdfasdf');
 INSERT INTO `mst_mahasiswa` VALUES ('14', '11.1.03.03.0118', 'HERU SETYIAWAN', 'Kediri', '4', '2012-12-21', '1', '7', '1', '0345 3245 3453', 'anonym');
-INSERT INTO `mst_mahasiswa` VALUES ('15', '11.1.03.03.0111', 'AHSAN HENDRA', 'Kediri', '1', '0000-00-00', null, '1', '1', '1', '8234234');
-INSERT INTO `mst_mahasiswa` VALUES ('16', '11.1.03.03.0111', 'AHSAN HENDRA', 'Kediri', '1', '0000-00-00', null, '1', '1', '1', '08234234');
-INSERT INTO `mst_mahasiswa` VALUES ('17', '11.1.03.03.0111', 'AHSAN HENDRA', 'Kediri', '1', '0000-00-00', null, '1', '1', '1', '0823 0928 0283');
-INSERT INTO `mst_mahasiswa` VALUES ('18', '11.1.03.03.0111', 'AHSAN HENDRA', 'Kediri', '1', '0000-00-00', null, '1', '1', '1', null);
-INSERT INTO `mst_mahasiswa` VALUES ('19', '11.1.03.03.0111', 'AHSAN HENDRA', 'Kediri', '1', '0000-00-00', null, '1', '1', '0823 0928 0283', '1');
-INSERT INTO `mst_mahasiswa` VALUES ('20', '10', 'ASDFASDF', 'Asdfasdf', '3', '2013-12-31', '7', '1', '345', '5asdfasdfasdfas', null);
-INSERT INTO `mst_mahasiswa` VALUES ('21', '10', 'ASDFASDF', 'Asdfasdf', '3', '2013-12-31', '7', '1', '345', '5asdfasdfasdfas', null);
-INSERT INTO `mst_mahasiswa` VALUES ('22', '10', 'ASDFASDF', 'Asdfasdf', '3', '2013-12-31', '7', '1', '345', '5asdfasdfasdfas', null);
-INSERT INTO `mst_mahasiswa` VALUES ('23', '234523452', 'ASDFASDF', 'Asdfasdf', '3', '2013-12-31', '7', '1', '345', '5asdfasdfasdfas', null);
-INSERT INTO `mst_mahasiswa` VALUES ('24', '234523452', 'ASDFASDF', 'Asdfasdf', '3', '2013-12-31', '7', '1', '345', '5asdfasdfasdfas', null);
-INSERT INTO `mst_mahasiswa` VALUES ('25', '234523452', 'ASDFASDF', 'Asdfasdf', '3', '2013-12-31', '7', '1', '345', '5asdfasdfasdfas', null);
-INSERT INTO `mst_mahasiswa` VALUES ('26', '23', 'ASDFASDF', 'Asdfaf', '1', '2012-03-04', '7', '1', '0', '', null);
-INSERT INTO `mst_mahasiswa` VALUES ('27', '23', 'ASDFASDF', 'Asdfaf', '1', '2012-03-04', '7', '1', '0', '', null);
-INSERT INTO `mst_mahasiswa` VALUES ('28', '23', 'ASDFASDF', 'Asdfaf', '1', '2012-03-04', '7', '1', '0', '', null);
-INSERT INTO `mst_mahasiswa` VALUES ('29', '23', 'ASDFASDF', 'Asdfaf', '1', '2012-03-04', '7', '1', '0', '', null);
-INSERT INTO `mst_mahasiswa` VALUES ('30', '23', 'ASDFASDF', 'Asdfaf', '1', '2012-03-04', '7', '1', '0', '', null);
-INSERT INTO `mst_mahasiswa` VALUES ('31', '234523452345234', 'ASDFASDFASDF', 'Asdfasdf', '1', '2012-03-04', '7', '1', '0', '', null);
-INSERT INTO `mst_mahasiswa` VALUES ('32', '1232', 'ASDFASDF', 'Asdfasdf', '2', '2012-03-04', '7', '1', '0', '', null);
-INSERT INTO `mst_mahasiswa` VALUES ('33', '1232', 'ASDFASDF', 'Asdfasdf', '2', '2012-03-04', '7', '1', '0', '', null);
-INSERT INTO `mst_mahasiswa` VALUES ('34', '1232', 'ASDFASDF', 'Asdfasdf', '2', '2012-03-04', '7', '1', '0', '', null);
-INSERT INTO `mst_mahasiswa` VALUES ('35', '1232', 'ASDFASDF', 'Asdfasdf', '2', '2012-03-04', '0', '7', '1', '', '');
-INSERT INTO `mst_mahasiswa` VALUES ('36', '1234123', 'ASDFASDF', 'Asdfasdf', '1', '2012-03-04', '1', '7', '1', '', '');
-INSERT INTO `mst_mahasiswa` VALUES ('37', '212', 'ASDFASDFASDF', '', '1', '0000-00-00', '0', '7', '1', '0456 7456 7456', '');
-INSERT INTO `mst_mahasiswa` VALUES ('40', '11.1.04.04.0199', 'M. ALI SODIKIN', 'Kediri', '5', '2012-12-12', '1', '7', '1', '0878 7676 7676', 'asdfasdfasdfasdfasdf');
+INSERT INTO `mst_mahasiswa` VALUES ('41', 'AG111030302010', 'MUHAMMAD KHOIRI', 'Kediri', '2', '2012-03-14', '1', '7', '1', '0234 5234 5234', 'sdfasdfasdfsadfasdf');
 
 -- ----------------------------
 -- Table structure for `mst_matkul`
@@ -167,7 +138,7 @@ CREATE TABLE `mst_matkul` (
   `sks` int(1) NOT NULL,
   `semester` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of mst_matkul
@@ -176,6 +147,10 @@ INSERT INTO `mst_matkul` VALUES ('10', 'mt001', 'Matmatika', '4', '5');
 INSERT INTO `mst_matkul` VALUES ('11', 'mt002', 'Bahasa Indonesia', '4', '8');
 INSERT INTO `mst_matkul` VALUES ('12', 'mt003', 'Ekonomi', '4', '8');
 INSERT INTO `mst_matkul` VALUES ('13', 'mt004', 'Penjaskes', '3', '6');
+INSERT INTO `mst_matkul` VALUES ('14', 'MT1002', 'E-commerce', '2', '5');
+INSERT INTO `mst_matkul` VALUES ('15', 'MT10003', 'Pemberdayaan Perempuan', '2', '6');
+INSERT INTO `mst_matkul` VALUES ('16', 'MT10004', 'Bahasa Jawa', '2', '6');
+INSERT INTO `mst_matkul` VALUES ('17', 'MT100022', 'Kewarganegaraan', '2', '5');
 
 -- ----------------------------
 -- Table structure for `mst_nilai`
@@ -190,13 +165,19 @@ CREATE TABLE `mst_nilai` (
   `ref_kelas_id` int(5) DEFAULT NULL,
   `nilai` float(5,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of mst_nilai
 -- ----------------------------
-INSERT INTO `mst_nilai` VALUES ('1', '14', '11', '7', '8', null, '3.25');
+INSERT INTO `mst_nilai` VALUES ('1', '14', '11', '7', '8', null, '3.75');
 INSERT INTO `mst_nilai` VALUES ('2', '14', '12', '7', '8', null, '3.75');
+INSERT INTO `mst_nilai` VALUES ('3', '14', '10', '7', '5', null, '3.75');
+INSERT INTO `mst_nilai` VALUES ('4', '14', '14', '7', '5', null, '3.25');
+INSERT INTO `mst_nilai` VALUES ('5', '14', '17', '7', '5', null, '3.50');
+INSERT INTO `mst_nilai` VALUES ('6', '14', '15', '7', '6', null, '1.50');
+INSERT INTO `mst_nilai` VALUES ('7', '14', '16', '7', '6', null, '1.58');
+INSERT INTO `mst_nilai` VALUES ('8', '14', '13', '7', '6', null, '0.12');
 
 -- ----------------------------
 -- Table structure for `mst_user`
@@ -216,10 +197,11 @@ CREATE TABLE `mst_user` (
 -- ----------------------------
 -- Records of mst_user
 -- ----------------------------
-INSERT INTO `mst_user` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '', '1', '2015-12-06 12:12:09', null);
+INSERT INTO `mst_user` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '', '1', '2015-12-11 19:12:53', null);
 INSERT INTO `mst_user` VALUES ('14', '1234', '81dc9bdb52d04dc20036dbd8313ed055', '1234', '3', '2015-12-06 10:12:09', '1');
 INSERT INTO `mst_user` VALUES ('27', '11.1.04.04.0199', '56117b5e797e699cb8af1f87e47e1377', '', '3', '2015-12-06 07:12:43', null);
-INSERT INTO `mst_user` VALUES ('29', '11.1.03.03.0118', '81dc9bdb52d04dc20036dbd8313ed055', '1234', '3', '2015-12-06 12:12:54', '1');
+INSERT INTO `mst_user` VALUES ('29', '11.1.03.03.0118', '81dc9bdb52d04dc20036dbd8313ed055', '1234', '3', '2015-12-06 22:12:59', '1');
+INSERT INTO `mst_user` VALUES ('30', 'AG111030302010', '81dc9bdb52d04dc20036dbd8313ed055', '1234', '3', '2015-12-06 19:12:57', null);
 
 -- ----------------------------
 -- Table structure for `ref_agama`
@@ -246,12 +228,12 @@ INSERT INTO `ref_agama` VALUES ('5', 'budha');
 DROP TABLE IF EXISTS `ref_grade`;
 CREATE TABLE `ref_grade` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `value` float(5,2) NOT NULL,
+  `value` double(5,2) NOT NULL,
   `grade` varchar(2) NOT NULL,
   `min` int(5) NOT NULL,
   `max` int(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of ref_grade
@@ -383,7 +365,7 @@ INSERT INTO `ref_prodi` VALUES ('1', '12.1234.akper', 'Akademi Keperawatan', '0'
 INSERT INTO `ref_prodi` VALUES ('5', '11.1.03.03.0022', 'D4 Kebidanan', '0');
 INSERT INTO `ref_prodi` VALUES ('6', '233333', 'Sistem Informasi', '0');
 INSERT INTO `ref_prodi` VALUES ('7', '1234123123', 'Kebidanan', '13');
-INSERT INTO `ref_prodi` VALUES ('8', '02323', 'Keperawatan', '12');
+INSERT INTO `ref_prodi` VALUES ('8', '1234567', 'Keperawatan', '14');
 
 -- ----------------------------
 -- Table structure for `ref_riwayat_kelas`
